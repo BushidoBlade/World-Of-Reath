@@ -37,7 +37,7 @@ public class sceneFadeInOut : MonoBehaviour {
 		FadeToClear();
 		
 		// If the texture is almost clear...
-		if(guiTexture.color.a <= 0.05f){
+		if(guiTexture.color.a <= 0.01f){
 			// ... set the colour to clear and disable the GUITexture.
 			guiTexture.color = Color.clear;
 			guiTexture.enabled = false;
@@ -56,7 +56,7 @@ public class sceneFadeInOut : MonoBehaviour {
 		FadeToBlack ();
 		
 		// If the screen is almost black...
-		if (guiTexture.color.a >= 0.95f) {
+		if (guiTexture.color.a >= 0.99f) {
 			// ... reload the level.
 			//Application.LoadLevel(0);
 		}
