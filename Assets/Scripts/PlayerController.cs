@@ -7,19 +7,19 @@ public class PlayerController : MonoBehaviour {
 	private Vector3 target;
 	//private bool isColliding;
 
+	void Start(){
+		playerMoveSpeed = 1.5f;
+		target = transform.position;
+	}
+
 	void OnCollisionEnter2D(Collision2D collision) {
-		transform.position = Vector3.MoveTowards (transform.position, Vector3.zero, 0.0f);
 		//isColliding = true;
+		transform.position = Vector3.MoveTowards (transform.position, Vector3.zero, playerMoveSpeed * Time.deltaTime);
 	}
 	void OnCollisionExit2D(Collision2D collision) {
 		//isColliding = false;
 	}
 
-	void Start(){
-		playerMoveSpeed = 1.5f;
-		target = transform.position;
-	}
-	
 	void FixedUpdate () { // Better for RigidBodies
 		if (Input.GetKey(KeyCode.LeftArrow))
 		{
