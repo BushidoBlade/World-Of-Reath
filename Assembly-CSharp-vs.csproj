@@ -60,6 +60,7 @@
      <Compile Include="Assets\Scripts\OptionsMenu_Antialiasing.cs" />
      <Compile Include="Assets\Scripts\OptionsMenu_Exit.cs" />
      <Compile Include="Assets\Scripts\OptionsMenu_VSync.cs" />
+     <Compile Include="Assets\Scripts\PlantEnemyController.cs" />
      <Compile Include="Assets\Scripts\PlantEnemyHealth.cs" />
      <Compile Include="Assets\Scripts\PlantEnemyHealthBar.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />

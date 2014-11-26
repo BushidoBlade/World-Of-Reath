@@ -17,6 +17,10 @@ public class PlantEnemyHealthBar : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(currentEnemyHP == maxEnemyHP)
+			renderer.enabled = false;  // no health bar on full hp
+		else
+			renderer.enabled = true;
 		currentEnemyHP = enemyHealth.currentHealth;
 		newScale = currentEnemyHP / (float)maxEnemyHP;
 		transform.localScale = new Vector3 (currentScale * newScale, transform.localScale.y, transform.localScale.z);
