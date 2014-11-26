@@ -5,12 +5,12 @@ public class sceneFadeInOut : MonoBehaviour {
 	
 	public float fadeSpeed = 1.5f;          // Speed that the screen fades to and from black.
 	private bool sceneStarting;
-	private bool sceneEnding;
+	//private bool sceneEnding;
 	
 	void Awake (){
 		guiTexture.pixelInset = new Rect(0f, 0f, Screen.width, Screen.height);
 		sceneStarting = true;
-		sceneEnding = false;
+		//sceneEnding = false;
 	}
 	
 	
@@ -18,8 +18,8 @@ public class sceneFadeInOut : MonoBehaviour {
 		// If the scene is starting...
 		if (sceneStarting)
 			StartScene();
-		if (sceneEnding)
-			EndScene();
+		//if (sceneEnding)
+			//EndScene();
 	}
 	
 	
@@ -50,17 +50,17 @@ public class sceneFadeInOut : MonoBehaviour {
 		}
 	}
 
-	public void EndScene (){
+	public void EndScene (string level){
 		// Make sure the texture is enabled.
 		guiTexture.enabled = true;
-		sceneEnding = true;
+		//sceneEnding = true;
 		
 		// Start fading towards black.
 		FadeToBlack ();
 
 		// If the screen is almost black...
 		if (guiTexture.color.a >= 0.95f) {
-			Application.LoadLevel("StartMenu");
+			Application.LoadLevel(level);
 		}
 	}
 }

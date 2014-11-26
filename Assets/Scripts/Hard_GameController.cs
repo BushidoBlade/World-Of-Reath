@@ -6,7 +6,7 @@ public class Hard_GameController : MonoBehaviour {
 	public int gameTimer;
 	public bool isNight;
 	sceneFadeInOut end;
-	
+
 	void Awake () {
 		Destroy (GameObject.FindWithTag("MenuMusic"));
 		InvokeRepeating("incrTimer", 0, 1.0f);
@@ -14,6 +14,7 @@ public class Hard_GameController : MonoBehaviour {
 
 	void Start(){
 		end = GameObject.FindWithTag("sceneFader").GetComponent<sceneFadeInOut>();
+
 		isNight = false;
 		gameTimer = 0;
 	}
@@ -23,8 +24,8 @@ public class Hard_GameController : MonoBehaviour {
 	}
 
 	void Update(){
-		if (Input.GetKey (KeyCode.Escape)) {
-			end.EndScene ();
+		if (Input.GetKey(KeyCode.Escape)) {
+			end.EndScene("StartMenu");
 		}
 	}
 }
