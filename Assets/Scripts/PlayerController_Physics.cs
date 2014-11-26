@@ -11,6 +11,7 @@ public class PlayerController_Physics : MonoBehaviour {
 	public bool walkingRight = false;
 	public bool walkingLeft = false;
 	public bool attackLeft = false;
+	public bool attackRight = false;
 
 	// Use this for initialization
 	void Start () {
@@ -64,5 +65,10 @@ public class PlayerController_Physics : MonoBehaviour {
 		}
 		else
 			anim.SetBool("attackLeft", false);
+		if(Input.GetButton("Fire2")){
+			anim.SetBool("attackRight", true);
+		}
+		else
+			anim.SetBool("attackRight", false);
 	}
 }

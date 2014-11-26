@@ -18,10 +18,10 @@ public class NightFade : MonoBehaviour {
 	}
 	
 	void Update(){
-		if ((timer.gameTimer % 5 == 0) && !isNight) {
+		if ((timer.gameTimer == 20) && !isNight) {
 			StartNight();
 		}
-		else if ((timer.gameTimer % 5 == 0) && isNight) {
+		else if ((timer.gameTimer == 40) && isNight) {
 			EndNight();
 		}
 	}
