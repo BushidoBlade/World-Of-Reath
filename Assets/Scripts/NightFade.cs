@@ -3,58 +3,44 @@ using System.Collections;
 
 public class NightFade : MonoBehaviour {
 
-	
 	public float fadeSpeed = 1.5f;          // Speed that the screen fades to and from black.
-	public Color night;
+	private Color night;
 	public bool isNight;
-	public float nightTimerSec = 0.0f;
-	Hard_GameController timer;
+	public float alpha;
+	GameTimer timer;
 	
 	void Awake (){
 		guiTexture.pixelInset = new Rect(0f, 0f, Screen.width, Screen.height);
 		guiTexture.color = Color.clear;
-		timer = GameObject.FindWithTag("MainCamera").GetComponent<Hard_GameController>();
+		timer = GameObject.FindWithTag("GameTimer").GetComponent<GameTimer>();
 		night = new Color(0.0f, 0.0f, 0.2f, 0.15f);
 	}
 	
 	void Update(){
-		if ((timer.gameTimer == 20) && !isNight) {
+		alpha = guiTexture.color.a;
+		if ((timer.gameTimer == 10) && !isNight) {
 			StartNight();
 		}
-		else if ((timer.gameTimer == 40) && isNight) {
+		else if ((timer.gameTimer == 20) && isNight) {
 			EndNight();
 		}
 	}
 	
-	
-	void FadeToClear (){
-		//guiTexture.color = Color.Lerp(guiTexture.color, Color.clear, Time.deltaTime);
-		guiTexture.color = Color.Lerp(guiTexture.color, Color.clear, Time.deltaTime);
-	}
-	
-	
-	void FadeToBlue (){
-		guiTexture.color = Color.Lerp(guiTexture.color, night, Time.deltaTime);
-	}
-	
-
 	void StartNight (){
-		FadeToBlue();
+		guiTexture.color = Color.Lerp(guiTexture.color, night, fadeSpeed * Time.deltaTime);
 
 		if (guiTexture.color.a > 0.09f) {
 			guiTexture.color = night;
 			isNight = true;
-			timer.isNight = true;
 		}
 	}
 
 	void EndNight (){
-		FadeToClear ();
+		guiTexture.color = Color.Lerp(guiTexture.color, Color.clear, fadeSpeed * Time.deltaTime);
 
-		if (guiTexture.color.a < 0.03f) {
+		if (guiTexture.color.a < 0.04f) {
 			guiTexture.color = Color.clear;
 			isNight = false;
-			timer.isNight = false;
 		}
 	}
 

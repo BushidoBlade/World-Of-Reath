@@ -17,6 +17,8 @@ public class PlantEnemyController : MonoBehaviour {
 	public Transform spawnPoint;
 	public Transform myTransform;
 
+	public bool sceneTransition = false;
+
 	void Awake(){
 		myTransform = transform;
 		GameObject player = GameObject.FindWithTag("Player");
@@ -36,7 +38,7 @@ public class PlantEnemyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (night.isNight) {
+		if (night.isNight && !sceneTransition) {
 			moveSpeed = 1;
 		}else {
 			myTransform.position = spawnPoint.position;

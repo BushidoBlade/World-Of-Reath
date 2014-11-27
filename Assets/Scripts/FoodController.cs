@@ -16,10 +16,15 @@ public class FoodController : MonoBehaviour {
 		pEnemyTrans = GameObject.FindWithTag("PlantEnemy").transform;
 	}
 
-	void OnCollisionEnter2D(Collision2D collider) {
+	//void OnTriggerEnter2D(Collision2D Trigger) {
+	//	myTransform.position = foodSpawn.position;
+	//	pHealth.adjustHealth(20);
+	//}
+	void OnCollisionEnter2D(Collision2D Trigger) {
 		myTransform.position = foodSpawn.position;
 		pHealth.adjustHealth(20);
 	}
+
 
 
 	// Update is called once per frame

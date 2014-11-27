@@ -3,23 +3,21 @@ using System.Collections;
 
 public class sceneFadeInOut : MonoBehaviour {
 	
-	public float fadeSpeed = 1.5f;          // Speed that the screen fades to and from black.
+	public float fadeSpeed = 1.0f;          // Speed that the screen fades to and from black.
 	private bool sceneStarting;
-	//private bool sceneEnding;
-	
+	public float alpha;
+
 	void Awake (){
 		guiTexture.pixelInset = new Rect(0f, 0f, Screen.width, Screen.height);
 		sceneStarting = true;
-		//sceneEnding = false;
 	}
 	
 	
 	void Update (){
+		alpha = guiTexture.color.a;
 		// If the scene is starting...
 		if (sceneStarting)
 			StartScene();
-		//if (sceneEnding)
-			//EndScene();
 	}
 	
 	
@@ -59,7 +57,7 @@ public class sceneFadeInOut : MonoBehaviour {
 		FadeToBlack ();
 
 		// If the screen is almost black...
-		if (guiTexture.color.a >= 0.95f) {
+		if (guiTexture.color.a >= 0.90f) {
 			Application.LoadLevel(level);
 		}
 	}

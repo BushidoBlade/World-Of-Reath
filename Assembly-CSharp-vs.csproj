@@ -48,6 +48,9 @@
   <ItemGroup>
      <Compile Include="Assets\GUITextResizer20pt.cs" />
      <Compile Include="Assets\Scripts\FoodController.cs" />
+     <Compile Include="Assets\Scripts\GUITextRotater.cs" />
+     <Compile Include="Assets\Scripts\GameOverOptions.cs" />
+     <Compile Include="Assets\Scripts\GameTimer.cs" />
      <Compile Include="Assets\Scripts\GameTypesMenu_Exit.cs" />
      <Compile Include="Assets\Scripts\GameTypesMenu_Hard.cs" />
      <Compile Include="Assets\Scripts\GameTypesMenu_Normal.cs" />
@@ -67,10 +70,12 @@
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerController_Physics.cs" />
      <Compile Include="Assets\Scripts\PlayerHealth.cs" />
+     <Compile Include="Assets\Scripts\SceneChange_Town.cs" />
      <Compile Include="Assets\Scripts\StartMenu_CreditsButton.cs" />
      <Compile Include="Assets\Scripts\StartMenu_OptionsButton.cs" />
      <Compile Include="Assets\Scripts\StartMenu_QuitButton.cs" />
      <Compile Include="Assets\Scripts\StartMenu_StartButton.cs" />
+     <Compile Include="Assets\Scripts\SurvivedGUIText.cs" />
      <Compile Include="Assets\Scripts\Tutorial_Manager.cs" />
      <Compile Include="Assets\Scripts\sceneFadeInOut.cs" />
   </ItemGroup>
