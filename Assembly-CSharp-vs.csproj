@@ -67,7 +67,6 @@
      <Compile Include="Assets\Scripts\PlantEnemyController.cs" />
      <Compile Include="Assets\Scripts\PlantEnemyHealth.cs" />
      <Compile Include="Assets\Scripts\PlantEnemyHealthBar.cs" />
-     <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\PlayerController_Physics.cs" />
      <Compile Include="Assets\Scripts\PlayerHealth.cs" />
      <Compile Include="Assets\Scripts\SceneChange_Town.cs" />

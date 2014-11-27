@@ -21,7 +21,7 @@ public class NightFade : MonoBehaviour {
 		if ((timer.gameTimer == 10) && !isNight) {
 			StartNight();
 		}
-		else if ((timer.gameTimer == 20) && isNight) {
+		else if ((timer.gameTimer == 25) && isNight) {
 			EndNight();
 		}
 	}
