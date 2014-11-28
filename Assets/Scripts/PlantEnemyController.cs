@@ -20,6 +20,8 @@ public class PlantEnemyController : MonoBehaviour {
 	public bool sceneTransition = false;
 	public GameObject itemDrop;
 	public float faceDirection;
+	private AudioSource audio1;
+	private AudioSource audio2;
 
 	void Awake(){
 		myTransform = transform;
@@ -30,6 +32,10 @@ public class PlantEnemyController : MonoBehaviour {
 		night = GameObject.FindWithTag("NightFader").GetComponent<NightFade>();
 		target = player.transform;
 		anim = GetComponent<Animator>();
+		AudioSource[] audios = GetComponents<AudioSource>();
+		audio1 = audios[0];
+		audio2 = audios[1];
+		audio2.volume = 0.25f;
 	}
 	
 	// Use this for initialization
@@ -51,6 +57,7 @@ public class PlantEnemyController : MonoBehaviour {
 		Debug.DrawLine( target.transform.position, myTransform.position, Color.magenta);
 		distance = Vector3.Distance(target.transform.position, myTransform.position);
 		if (eHealth.currentHealth == 0) {
+			audio2.Play();
 			Instantiate(itemDrop, myTransform.position, Quaternion.identity);
 			myTransform.position = spawnPoint.position;
 			eHealth.currentHealth = eHealth.maxHealth;
@@ -82,7 +89,10 @@ public class PlantEnemyController : MonoBehaviour {
 	}
 	
 	private void Attack(){
-		if (distance < 1.1f)
-			pHealth.adjustHealth(-20);
+		if (distance < 1.1f) {
+			if (pHealth.currentHealth != 0)
+				audio1.Play();
+			pHealth.adjustHealth (-20);
+		}
 	}
 }

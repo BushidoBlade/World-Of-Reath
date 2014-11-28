@@ -21,7 +21,7 @@ public class GameTimer : MonoBehaviour {
 		DontDestroyOnLoad(this.gameObject);
 		InvokeRepeating("incrTimer", 0, 1.0f);
 		night = GameObject.FindWithTag("NightFader").GetComponent<NightFade>();
-		InvokeRepeating ("toggleNight", 10f, 10f);
+		InvokeRepeating ("toggleNight", 30f, 30f);
 	}
 
 	void toggleNight(){

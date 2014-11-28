@@ -23,7 +23,8 @@ public class PlayerController_Physics : MonoBehaviour {
 	SceneChange sceneTrans;
 	private AudioSource audio1;
 	private AudioSource audio2;
-
+	private AudioSource audio3;
+	private AudioSource gameMusic;
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator>();
@@ -34,12 +35,14 @@ public class PlayerController_Physics : MonoBehaviour {
 		enemyCont = GameObject.FindWithTag("PlantEnemy").GetComponent<PlantEnemyController>();
 		target = GameObject.FindWithTag("PlantEnemy");
 		attackTimer = 0;
-		attackCooldown = .3f;
+		attackCooldown = 0.5f;
+		gameMusic = GameObject.FindWithTag("GameMusic").GetComponent<AudioSource>();
 		AudioSource[] audios = GetComponents<AudioSource>();
 		audio1 = audios[0];
-		audio1.volume = 0.1f;
+		audio1.volume = 0.2f;
 		audio2 = audios[1];
 		audio2.volume = 0.05f;
+		audio3 = audios[2];
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {
@@ -66,8 +69,14 @@ public class PlayerController_Physics : MonoBehaviour {
 	//}
 
 	void Update(){
-		if (pHealth.currentHealth == 0)
-			playerMoveSpeed = 0;
+		if (pHealth.currentHealth == 0) {
+				playerMoveSpeed = 0;
+				if (!audio3.isPlaying){
+					audio3.Play();
+				}
+				if (gameMusic.volume > 0)
+					gameMusic.volume -= Time.deltaTime;
+			}
 
 		if (attackTimer > 0)
 			attackTimer -= Time.deltaTime;

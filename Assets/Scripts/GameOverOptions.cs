@@ -9,17 +9,22 @@ public class GameOverOptions : MonoBehaviour {
 
 	void Awake () {
 		end = GameObject.FindWithTag ("sceneFader").GetComponent<sceneFadeInOut> ();
+		Destroy (GameObject.FindWithTag("GameMusic"));
 	}
 
 	void Update(){
 		if (Input.GetKey (KeyCode.Escape)) {
 			sceneEnding = true;
 			level = "StartMenu";
-		} else if (Input.GetKey (KeyCode.T)) {
+		}
+		if (Input.GetKey (KeyCode.T)) {
 			sceneEnding = true;
 			level = "Town";
 		}
-		if (sceneEnding)
-			end.EndScene(level);
+		if (sceneEnding) {
+			if (audio.volume > 0)
+				audio.volume -= Time.deltaTime;
+			end.EndScene (level);
+		}
 	}
 }
