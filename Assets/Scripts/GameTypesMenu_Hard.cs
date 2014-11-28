@@ -4,6 +4,6 @@ using System.Collections;
 public class GameTypesMenu_Hard : MonoBehaviour {
 
 	void OnMouseDown () {
-		Application.LoadLevel("Arena");
+		Application.LoadLevel("Town");
 	}
 }

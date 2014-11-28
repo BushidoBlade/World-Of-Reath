@@ -83,6 +83,6 @@ public class PlantEnemyController : MonoBehaviour {
 	
 	private void Attack(){
 		if (distance < 1.1f)
-			pHealth.adjustHealth(-10);
+			pHealth.adjustHealth(-20);
 	}
 }

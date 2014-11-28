@@ -3,6 +3,7 @@ using System.Collections;
 
 public class FoodController : MonoBehaviour {
 	PlayerHealth pHealth;
+
 	// Use this for initialization
 	void Start () {
 		pHealth = GameObject.FindWithTag("Player").GetComponent<PlayerHealth>();
