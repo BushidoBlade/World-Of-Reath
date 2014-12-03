@@ -8,6 +8,7 @@ public class PlantEnemyHealthBar : MonoBehaviour {
 	private float newScale;
 	private float currentScale;
 	public bool render = false;
+
 	// Use this for initialization
 	void Start () {
 		renderer.material.color = new Color(0.8f, 0.0f, 0.0f);
@@ -20,10 +21,8 @@ public class PlantEnemyHealthBar : MonoBehaviour {
 	void Update () {
 		if (currentEnemyHP == maxEnemyHP) {
 			renderer.enabled = false;  // no health bar on full hp
-			render = false;
 		} else {
 			renderer.enabled = true;
-			render = true;
 		}
 		currentEnemyHP = enemyHealth.currentHealth;
 		newScale = currentEnemyHP / (float)maxEnemyHP;

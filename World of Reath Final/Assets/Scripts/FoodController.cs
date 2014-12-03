@@ -12,6 +12,7 @@ public class FoodController : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D other) {
 		if (other.gameObject.tag == "Player") {
 			pHealth.adjustHealth (20);
+			audio.Play();
 			Destroy(gameObject);
 		}
 	}

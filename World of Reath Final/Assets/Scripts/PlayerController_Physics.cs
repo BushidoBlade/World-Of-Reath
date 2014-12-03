@@ -46,7 +46,6 @@ public class PlayerController_Physics : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {
-		//collider2D.rigidbody2D.velocity = Vector3.zero;
 		rigidbody2D.velocity = Vector3.zero;
 		if (other.gameObject.tag == "SceneChange_Town") {
 			sceneTrans = GameObject.FindWithTag("SceneChange_Town").GetComponent<SceneChange>();
@@ -148,7 +147,7 @@ public class PlayerController_Physics : MonoBehaviour {
 	private void Attack(){
 		distance = Vector3.Distance(target.transform.position, transform.position);
 		audio2.Play();
-		if (distance < 1.9f)
+		if (distance < 1.6f)
 			eHealth.adjustHealth(-10);
 		}
 }

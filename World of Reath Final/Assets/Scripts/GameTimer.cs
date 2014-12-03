@@ -19,7 +19,7 @@ public class GameTimer : MonoBehaviour {
 		}
 		DontDestroyOnLoad(this.gameObject);
 		InvokeRepeating("incrTimer", 0, 1.0f);
-		InvokeRepeating ("toggleNight", 60f, 60f);
+		InvokeRepeating ("toggleNight", 30f, 30f);
 	}
 
 	void toggleNight(){
