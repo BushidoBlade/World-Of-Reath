@@ -10,6 +10,7 @@ public class GameOverOptions : MonoBehaviour {
 	void Awake () {
 		end = GameObject.FindWithTag ("sceneFader").GetComponent<sceneFadeInOut> ();
 		Destroy (GameObject.FindWithTag("GameMusic"));
+		Destroy (GameObject.FindWithTag("PlayerHealthTracker"));
 	}
 
 	void Update(){

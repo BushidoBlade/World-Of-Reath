@@ -18,5 +18,6 @@ public class MenuMusic : MonoBehaviour {
 		DontDestroyOnLoad(this.gameObject);
 		Destroy (GameObject.FindWithTag("GameTimer"));
 		Destroy (GameObject.FindWithTag("GameMusic"));
+		Destroy (GameObject.FindWithTag("PlayerHealthTracker"));
 	}
 }

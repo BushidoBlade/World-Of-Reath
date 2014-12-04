@@ -5,12 +5,6 @@ public class PlayerController_Physics : MonoBehaviour {
 	public float playerMoveSpeed;
 	public float maxVelocity;
 	private float vMagnitude;
-	//private bool walkingDown = false;
-	//private bool walkingUp = false;
-	//private bool walkingRight = false;
-	//private bool walkingLeft = false;
-	//private bool attackLeft = false;
-	//private bool attackRight = false;
 	private GameObject target;
 	private float distance;
 	private float attackTimer;
@@ -25,6 +19,7 @@ public class PlayerController_Physics : MonoBehaviour {
 	private AudioSource audio2;
 	private AudioSource audio3;
 	private AudioSource gameMusic;
+
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator>();

@@ -4,8 +4,9 @@ using System.Collections;
 public class PlayerHealth : MonoBehaviour {
 	public int maxHealth = 100;
 	public int currentHealth = 100;
-	sceneFadeInOut end;
 	private GUIStyle currentStyle = null;
+	sceneFadeInOut end;
+	PlayerHealthTracker pHealthTracker;
 
 	private void InitStyles() {
 		if( currentStyle == null )
@@ -34,12 +35,15 @@ public class PlayerHealth : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		end = GameObject.FindWithTag("sceneFader").GetComponent<sceneFadeInOut>();
+		pHealthTracker = GameObject.FindWithTag("PlayerHealthTracker").GetComponent<PlayerHealthTracker>();
+		currentHealth = pHealthTracker.currentPlayerhealth;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (currentHealth <= 0)
 			end.EndScene("GameOver");
+		pHealthTracker.currentPlayerhealth = currentHealth;
 	}
 
     public void adjustHealth(int hp){
